@@ -1,0 +1,15 @@
+<p>weather-detail works!</p>
+<div *ngIf="weatherData">
+  <ul>
+    <li>{{ weatherData.city }}</li>
+    <li>{{ weatherData.countryCode }}</li>
+    <li>{{ weatherData.unixTime }}</li>
+
+    <li>{{ weatherData.temperatureInKelvin }}</li>
+    <li>{{ weatherData.pressureInHectoPascal }}</li>
+    <li>{{ weatherData.humidityPercent }}</li>
+    <li>{{ weatherData.windSpeedInMeterPerSecond }}</li>
+    <li>{{ weatherData.windDirectionInDegrees }}</li>
+    <li>{{ weatherData.cloudinessPercent }}</li>
+  </ul>
+</div>
