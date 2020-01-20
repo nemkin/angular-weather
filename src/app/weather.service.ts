@@ -4,20 +4,22 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { WeatherData } from './weather-data';
+import { AppConfigService } from './app-config.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class WeatherService {
 
-  private url = 'https://api.openweathermap.org/data/2.5/weather?appid=881d45d0c0eafe81189f9b35bbbc818a&q=';
+  private baseUrl = 'https://api.openweathermap.org/data/2.5/weather';
   constructor(
+    private appConfig: AppConfigService,
     private http: HttpClient,
   ) { }
 
   getWeatherData(city: string): Observable<WeatherData> {
 
-    return this.http.get<any>(`${this.url}${city}`).pipe(
+    return this.http.get<any>(`${this.baseUrl}?appid=${this.appConfig.openWeatherApiKey}&q=${city}`).pipe(
       map(
         result => {
           return {
