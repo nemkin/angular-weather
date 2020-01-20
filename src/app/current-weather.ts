@@ -1,4 +1,4 @@
-export class WeatherData {
+export class CurrentWeather {
   city: string;
   countryCode: string;
   unixTime: number;

@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { WeatherService } from '../weather.service';
-import { WeatherData } from '../weather-data';
+import { CurrentWeather } from '../current-weather';
+import { ForecastWeather } from '../forecast-weather';
 
 @Component({
   selector: 'app-weather-detail',
@@ -10,19 +11,27 @@ import { WeatherData } from '../weather-data';
 export class WeatherDetailComponent implements OnInit {
 
   @Input() city: string;
-  weatherData: WeatherData;
+  currentWeather: CurrentWeather;
+  forecastWeather: ForecastWeather;
 
-  temperaturePrediction = [10, 20, 30, 40, 50];
   constructor(private weatherService: WeatherService) { }
 
   ngOnInit() {
-    this.getWeatherData();
-    console.log(this.weatherData);
+    this.getCurrentWeather();
+    this.getForecastWeather();
+    console.log(this.currentWeather);
+    console.log(this.forecastWeather);
   }
 
-  getWeatherData(): void {
-    this.weatherService.getWeatherData(this.city).subscribe(
-      weatherData => this.weatherData = weatherData
+  getCurrentWeather(): void {
+    this.weatherService.getCurrentWeather(this.city).subscribe(
+      currentWeather => this.currentWeather = currentWeather
+    );
+  }
+
+  getForecastWeather(): void {
+    this.weatherService.getForecastWeather(this.city).subscribe(
+      forecastWeather => this.forecastWeather = forecastWeather
     );
   }
 

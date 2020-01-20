@@ -1,15 +1,28 @@
 <p>weather-detail works!</p>
-<div *ngIf="weatherData">
+<div *ngIf="currentWeather">
   <ul>
-    <li>{{ weatherData.city }}</li>
-    <li>{{ weatherData.countryCode }}</li>
-    <li>{{ weatherData.unixTime }}</li>
+    <li>{{ currentWeather.city }}</li>
+    <li>{{ currentWeather.countryCode }}</li>
+    <li>{{ currentWeather.unixTime*1000 | date:'yyyy/MM/dd HH:mm:ss' }}</li>
 
-    <li>{{ weatherData.temperatureInKelvin }}</li>
-    <li>{{ weatherData.pressureInHectoPascal }}</li>
-    <li>{{ weatherData.humidityPercent }}</li>
-    <li>{{ weatherData.windSpeedInMeterPerSecond }}</li>
-    <li>{{ weatherData.windDirectionInDegrees }}</li>
-    <li>{{ weatherData.cloudinessPercent }}</li>
+    <li>{{ currentWeather.temperatureInKelvin }}</li>
+    <li>{{ currentWeather.pressureInHectoPascal }}</li>
+    <li>{{ currentWeather.humidityPercent }}</li>
+    <li>{{ currentWeather.windSpeedInMeterPerSecond }}</li>
+    <li>{{ currentWeather.windDirectionInDegrees }}</li>
+    <li>{{ currentWeather.cloudinessPercent }}</li>
+  </ul>
+</div>
+
+<div *ngIf="forecastWeather">
+  <ul>
+    <li>{{ forecastWeather.city }}</li>
+    <li>{{ forecastWeather.countryCode }}</li>
+
+  </ul>
+
+  <ul>
+    <li *ngFor="let ut of forecastWeather.unixTime | slice:0:5">{{ ut*1000 | date:'yyyy/MM/dd HH:mm:ss' }}</li>
+    <li *ngFor="let tk of forecastWeather.temperatureInKelvin | slice:0:5 ">{{ tk }}</li>
   </ul>
 </div>

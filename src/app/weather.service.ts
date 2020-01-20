@@ -3,7 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { WeatherData } from './weather-data';
+import { CurrentWeather } from './current-weather';
+import { ForecastWeather } from './forecast-weather';
 import { AppConfigService } from './app-config.service';
 
 @Injectable({
@@ -11,15 +12,16 @@ import { AppConfigService } from './app-config.service';
 })
 export class WeatherService {
 
-  private baseUrl = 'https://api.openweathermap.org/data/2.5/weather';
+  private currentWeatherBaseUrl = 'https://api.openweathermap.org/data/2.5/weather';
+  private forecastWeatherBaseUrl = 'https://api.openweathermap.org/data/2.5/forecast';
   constructor(
     private appConfig: AppConfigService,
     private http: HttpClient,
   ) { }
 
-  getWeatherData(city: string): Observable<WeatherData> {
+  getCurrentWeather(city: string): Observable<CurrentWeather> {
 
-    return this.http.get<any>(`${this.baseUrl}?appid=${this.appConfig.openWeatherApiKey}&q=${city}`).pipe(
+    return this.http.get<any>(`${this.currentWeatherBaseUrl}?appid=${this.appConfig.openWeatherApiKey}&q=${city}`).pipe(
       map(
         result => {
           return {
@@ -35,10 +37,26 @@ export class WeatherService {
             windDirectionInDegrees: result.wind.deg,
 
             cloudinessPercent: result.clouds.all,
-          } as WeatherData;
+          } as CurrentWeather;
         }
       )
     );
   }
 
+  getForecastWeather(city: string): Observable<ForecastWeather> {
+
+    return this.http.get<any>(`${this.forecastWeatherBaseUrl}?appid=${this.appConfig.openWeatherApiKey}&q=${city}`).pipe(
+      map(
+        result => {
+          return {
+            city: result.city.name,
+            countryCode: result.city.country,
+
+            unixTime: result.list.map(item => item.dt),
+            temperatureInKelvin: result.list.map(item => item.main.temp),
+          } as ForecastWeather;
+        }
+      )
+    );
+  }
 }
