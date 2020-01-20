@@ -1,4 +1,3 @@
-<p>weather-detail works!</p>
 <div *ngIf="currentWeather">
   <ul>
     <li>{{ currentWeather.city }}, {{ currentWeather.countryCode }}</li>
@@ -9,8 +8,15 @@
     <li>{{ currentWeather.temperatureInKelvin | temperature : 'K':'C' }} C°</li>
     <li>{{ currentWeather.pressureInHectoPascal }} hPa</li>
     <li>{{ currentWeather.humidityPercent }}%</li>
-    <li>{{ currentWeather.windSpeedInMeterPerSecond }}m/s</li>
-    <li>{{ currentWeather.windDirectionInDegrees }}°</li>
+    <li>
+      <app-wind-widget
+        x="0"
+        y="0"
+        size="200"
+        speedInMeterPerSecond="{{ currentWeather.windSpeedInMeterPerSecond }}"
+        directionInDegrees="{{ currentWeather.windDirectionInDegrees }}">
+      </app-wind-widget>
+    </li>
     <li>{{ currentWeather.cloudinessPercent }}%</li>
   </ul>
 </div>

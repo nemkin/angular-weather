@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 import { AppConfigService } from './app-config.service';
 import { WeatherDetailComponent } from './weather-detail/weather-detail.component';
 import { TemperaturePipe } from './pipes/temperature.pipe';
+import { WindWidgetComponent } from './wind-widget/wind-widget.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WeatherDetailComponent,
     TemperaturePipe,
+    WindWidgetComponent,
   ],
   imports: [
     BrowserModule,

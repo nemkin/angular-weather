@@ -1,0 +1,34 @@
+#compass {
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  background: grey;
+  position: relative;
+}
+#arrow {
+  width: 50px;
+  height: 2px;
+  background-color:#F00;
+  position: absolute;
+  top: 24px;
+  left: 0px;
+
+  transform:rotate(120deg);
+  -webkit-transform:rotate(90deg);
+  -moz-transform:rotate(90deg);
+  -o-transform:rotate(90deg);
+  -ms-transform:rotate(90deg);
+
+  -moz-transition: all 1s ease;
+  -webkit-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+#compass:hover #arrow {
+  transform:rotate(0deg);
+  -webkit-transform:rotate(0deg);
+  -moz-transform:rotate(0deg);
+  -o-transform:rotate(0deg);
+  -ms-transform:rotate(0deg);
+}
