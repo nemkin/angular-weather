@@ -14,6 +14,9 @@ export class WeatherService {
 
   private currentWeatherBaseUrl = 'https://api.openweathermap.org/data/2.5/weather';
   private forecastWeatherBaseUrl = 'https://api.openweathermap.org/data/2.5/forecast';
+  private iconBaseUrl = 'http://openweathermap.org/img/wn/';
+  private iconEndUrl = '@2x.png';
+
   constructor(
     private appConfig: AppConfigService,
     private http: HttpClient,
@@ -27,8 +30,10 @@ export class WeatherService {
           return {
             city: result.name,
             countryCode: result.sys.country,
-
             unixTime: result.dt,
+
+            description: result.weather[0].main,
+            iconUrl: `${this.iconBaseUrl}${result.weather[0].icon}${this.iconEndUrl}`,
 
             temperatureInKelvin: result.main.temp,
             pressureInHectoPascal: result.main.pressure,

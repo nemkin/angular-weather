@@ -4,13 +4,15 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { WeatherDetailComponent } from './weather-detail/weather-detail.component';
 import { AppConfigService } from './app-config.service';
+import { WeatherDetailComponent } from './weather-detail/weather-detail.component';
+import { TemperaturePipe } from './pipes/temperature.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     WeatherDetailComponent,
+    TemperaturePipe,
   ],
   imports: [
     BrowserModule,

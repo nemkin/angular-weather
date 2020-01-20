@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { WeatherService } from '../weather.service';
 import { CurrentWeather } from '../current-weather';
 import { ForecastWeather } from '../forecast-weather';
+import { TemperaturePipe } from '../pipes/temperature.pipe';
 
 @Component({
   selector: 'app-weather-detail',
@@ -19,8 +20,6 @@ export class WeatherDetailComponent implements OnInit {
   ngOnInit() {
     this.getCurrentWeather();
     this.getForecastWeather();
-    console.log(this.currentWeather);
-    console.log(this.forecastWeather);
   }
 
   getCurrentWeather(): void {

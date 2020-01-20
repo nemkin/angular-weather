@@ -3,6 +3,9 @@ export class CurrentWeather {
   countryCode: string;
   unixTime: number;
 
+  description: string;
+  iconUrl: string;
+
   temperatureInKelvin: number;
   pressureInHectoPascal: number;
   humidityPercent: number;
