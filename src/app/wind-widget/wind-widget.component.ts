@@ -10,8 +10,8 @@ export class WindWidgetComponent implements OnInit {
   @Input() speedInMeterPerSecond: number;
   @Input() directionInDegrees: number;
 
-  public readonly size = 1500;
-  public readonly innerTextSize = 300;
+  public readonly size = 1700;
+  public readonly innerTextSize = 280;
   public readonly outerTextSize = 240;
   public readonly outerTextMargin = 20;
   public readonly strikeLength = 120;
@@ -25,6 +25,7 @@ export class WindWidgetComponent implements OnInit {
   get centerY() { return this.size / 2; }
   get radius() { return this.size / 2 - this.lineWidth - this.outerTextMargin - this.outerTextSize; }
   get strikeWidth() { return this.lineWidth * 0.6; }
+  get speedInKilometerPerHour()  { return (this.speedInMeterPerSecond * 3.6).toFixed(0); }
 
   private canvas: HTMLCanvasElement;
   private context: CanvasRenderingContext2D;
@@ -75,7 +76,7 @@ export class WindWidgetComponent implements OnInit {
     this.context.textAlign = 'center';
     this.context.textBaseline = 'middle';
     this.context.fillStyle = this.grey;
-    this.context.fillText(`${this.speedInMeterPerSecond}`, 0, 0);
+    this.context.fillText(`${this.speedInKilometerPerHour}`, 0, 0);
 
     this.context.restore();
   }
