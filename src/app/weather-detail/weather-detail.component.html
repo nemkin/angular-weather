@@ -1,24 +1,28 @@
 <div *ngIf="currentWeather">
-  <ul>
-    <li>{{ currentWeather.city }}, {{ currentWeather.countryCode }}</li>
-    <li>{{ currentWeather.unixTime*1000 | date:'yyyy/MM/dd HH:mm:ss' }}</li>
 
-    <li>{{ currentWeather.description }}</li>
-    <li><img src="{{ currentWeather.iconUrl }}"/></li>
-    <li>{{ currentWeather.temperatureInKelvin | temperature : 'K':'C' }} C°</li>
-    <li>{{ currentWeather.pressureInHectoPascal }} hPa</li>
-    <li>{{ currentWeather.humidityPercent }}%</li>
-    <li>
+<div class="current-weather">
+  <div class="weather-image-container">
+    <img class="weather-image" src="{{ currentWeather.iconUrl }}"/>
+  </div>
+  <div class="location-status">
+    <div class="location">{{ currentWeather.city }}, {{ currentWeather.countryCode }}</div>
+    <div class="status">{{ currentWeather.description }}</div>
+  </div>
+</div>
+
+{{ currentWeather.unixTime * 1000 | date:'yyyy/MM/dd HH:mm:ss' }}
+{{ currentWeather.temperatureInKelvin | temperature : 'K':'C' }} C°
+{{ currentWeather.pressureInHectoPascal }} hPa
+{{ currentWeather.humidityPercent }}%
+
       <app-wind-widget
         speedInMeterPerSecond="{{ currentWeather.windSpeedInMeterPerSecond }}"
         directionInDegrees="{{ currentWeather.windDirectionInDegrees }}">
       </app-wind-widget>
-    </li>
-    <li>{{ currentWeather.cloudinessPercent }}%</li>
-  </ul>
-</div>
 
-<div *ngIf="forecastWeather">
+{{ currentWeather.cloudinessPercent }}%
+
+<div *ngIf="0">
   <ul>
     <li>{{ forecastWeather.city }}</li>
     <li>{{ forecastWeather.countryCode }}</li>
