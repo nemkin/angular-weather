@@ -2,9 +2,6 @@
   padding: 0px;
   margin: 0px;
 }
-#main {
-    width: 700px;
-}
 #top {
   position: relative;
   height: 120px;
@@ -13,7 +10,7 @@
 #status-img {
   position: absolute;
   top: 0;
-  left: 0;
+  right: 0;
   padding: 10px;
 }
 #city-status {
@@ -22,34 +19,34 @@
   left: 50%;
   transform: translate(-50%,-50%);
 }
-#city{
-  font-size: 30px;
-  text-align: center;
-}
-#status {
-  font-size: 25px;
-  text-align: center;
-}
-#weekday {
-  font-size: 25px;
-  text-align: center;
-}
 #datetime {
   position: absolute;
   top:20px;
-  right:0px;
-  width: 100px;
+  left:0px;
+  width: 120px;
+}
+#top p {
+  text-align: center;
+}
+#city{
+  font-size: 30px;
+  font-weight: bold;
+}
+#status {
+  font-size: 25px;
+}
+#weekday {
+  font-size: 20px;
 }
 #date{
-  font-size: 25px;
-  text-align: center;
+  font-size: 20px;
 }
 #time{
-  font-size: 12px;
-  text-align: center;
+  font-size: 18px;
 }
 #summary {
   position: relative;
+  width: 100%;
   height: 250px;
 }
 /* This is the only way I could vertically align text inside a float.
@@ -62,6 +59,7 @@
   float: left;
   width: 50%;
   height: 100%;
+  transform: translate(20px, 0px);
 }
 #temperature p {
   display: table-cell;
@@ -94,32 +92,89 @@
   top: 50%;
   transform: translate(-50%,-50%);
 }
-
 #detail-list {
   width: 100%;
   height: 100px;
   background-color: lightgrey;
 }
-
 #detail-list li {
   list-style: none;
   float: left;
   width: 33.3%;
   padding: 20px 0px;
 }
-
 /* https://stackoverflow.com/questions/114543/how-to-horizontally-center-a-div
  */
 #detail-list div {
   display: table;
   margin: auto;
 }
-
 #detail-list img {
   vertical-align: middle;
 }
 #detail-list p {
   display: inline-block;
   vertical-align: -5px;
-  font-size: 30px;
+  font-size: 25px;
+}
+@media(max-width:960px) {
+  #top {
+    position: initial;
+    height: initial;
+    padding: 5px 15px;
+  }
+  #city-status {
+    position: initial;
+    top: initial;
+    left: initial;
+    transform: initial;
+  }
+  #datetime {
+    position: initial;
+    top: initial;
+    left: initial;
+    width: initial;
+  }
+  #top p {
+    text-align: initial;
+    line-height: 1.3em;
+  }
+  #summary {
+    height: initial;
+  }
+  #temperature {
+    display: table;
+    float: initial;
+    width: 100%;
+    height: 170px;
+  }
+  #summary-separator {
+    position: initial;
+    width: 80%;
+    height: 1px;
+    top: initial;
+    left: initial;
+    transform: translate(10%,0%);
+    background-color: grey;
+  }
+  #wind-widget-container {
+    float: initial;
+    width: 100%;
+    height: 280px;
+    box-sizing: border-box;
+  }
+  #detail-list {
+    padding: 0 20px;
+  }
+  #detail-list li {
+    float: none;
+    width: initial;
+  }
+  #detail-list div {
+    display: initial;
+    margin: initial;
+  }
+  #detail-list {
+    height: initial;
+  }
 }
