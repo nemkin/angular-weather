@@ -11,7 +11,7 @@ export class WindWidgetComponent implements OnInit {
   @Input() directionInDegrees: number;
 
   public readonly size = 1700;
-  public readonly innerTextSize = 180;
+  public readonly innerTextSize = 160;
   public readonly outerTextSize = 240;
   public readonly outerTextMargin = 20;
   public readonly strikeLength = 120;
@@ -73,7 +73,7 @@ export class WindWidgetComponent implements OnInit {
     this.context.save();
     this.context.beginPath();
 
-    this.context.font = `${this.innerTextSize}px ${this.font}`;
+    this.context.font = `bold ${this.innerTextSize}px ${this.font}`;
     this.context.textAlign = 'center';
     this.context.textBaseline = 'middle';
     this.context.fillStyle = this.fontColor;
