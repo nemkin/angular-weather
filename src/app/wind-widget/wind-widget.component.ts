@@ -17,9 +17,10 @@ export class WindWidgetComponent implements OnInit {
   public readonly strikeLength = 120;
   public readonly lineWidth = 30;
 
-  public readonly font = 'Times New Roman';
-  public readonly grey = 'rgba(70, 70, 70, 1)';
-  public readonly red = 'rgba(170, 0, 0, 1)';
+  public readonly font = 'Arial';
+  public readonly baseColor = '#575761';
+  public readonly accentColor = '#FFBF46';
+  public readonly fontColor = '#648381';
 
   get centerX() { return this.size / 2; }
   get centerY() { return this.size / 2; }
@@ -61,7 +62,7 @@ export class WindWidgetComponent implements OnInit {
 
     this.context.arc(0, 0, this.radius, 0, 2 * Math.PI);
 
-    this.context.strokeStyle = this.grey;
+    this.context.strokeStyle = this.baseColor;
     this.context.lineWidth = this.lineWidth;
     this.context.stroke();
 
@@ -75,7 +76,7 @@ export class WindWidgetComponent implements OnInit {
     this.context.font = `${this.innerTextSize}px ${this.font}`;
     this.context.textAlign = 'center';
     this.context.textBaseline = 'middle';
-    this.context.fillStyle = this.grey;
+    this.context.fillStyle = this.fontColor;
     this.context.fillText(`${this.speedInKilometerPerHour} km/h`, 0, 0);
 
     this.context.restore();
@@ -88,7 +89,7 @@ export class WindWidgetComponent implements OnInit {
     this.context.font = `${this.outerTextSize}px ${this.font}`;
     this.context.textAlign = 'center';
     this.context.textBaseline = 'middle';
-    this.context.fillStyle = this.grey;
+    this.context.fillStyle = this.fontColor;
 
     const distance = this.size / 2 - this.outerTextSize / 2;
 
@@ -125,7 +126,7 @@ export class WindWidgetComponent implements OnInit {
     this.context.lineTo(c.x, c.y);
     this.context.lineTo(a.x, a.y);
 
-    this.context.fillStyle = this.red;
+    this.context.fillStyle = this.accentColor;
     this.context.fill();
 
     this.context.restore();
@@ -151,7 +152,7 @@ export class WindWidgetComponent implements OnInit {
 
     for (const strike of strikes) {
 
-      this.context.fillStyle = this.grey;
+      this.context.fillStyle = this.baseColor;
 
       this.context.rect(
         -this.lineWidth / 2,
