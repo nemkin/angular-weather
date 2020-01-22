@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material';
+import { AddCityDialogComponent } from './add-city-dialog/add-city-dialog.component';
 
 @Component({
   selector: 'app-root',
@@ -8,4 +10,18 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'angular-weather';
   cities = ['London', 'Budapest', 'Warsaw'];
+
+  constructor(
+    public dialog: MatDialog,
+  ) {}
+
+  addTab(): void {
+    const dialogRef = this.dialog.open(AddCityDialogComponent, {
+      width: '600px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.cities.push(result);
+    });
+  }
 }

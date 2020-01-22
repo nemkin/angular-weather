@@ -10,6 +10,10 @@ import { WindWidgetComponent } from './wind-widget/wind-widget.component';
 import { CurrentWeatherComponent } from './current-weather/current-weather.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule, MatFormFieldModule, MatInputModule, MatDialogModule } from '@angular/material';
+import { AddCityDialogComponent } from './add-city-dialog/add-city-dialog.component';
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -17,6 +21,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     TemperaturePipe,
     WindWidgetComponent,
     CurrentWeatherComponent,
+    AddCityDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -24,7 +29,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     BrowserAnimationsModule,
     MatTabsModule,
+    FormsModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatDialogModule,
+    MatInputModule,
   ],
+  entryComponents: [ AddCityDialogComponent ],
   providers: [
     {
       provide: APP_INITIALIZER,
