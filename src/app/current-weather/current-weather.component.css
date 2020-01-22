@@ -3,11 +3,11 @@
   margin: 0px;
 }
 #main {
-    width: 500px;
+    width: 700px;
 }
 #top {
   position: relative;
-  height: 70px;
+  height: 120px;
   background-color: #ccc;
 }
 #status-img {
@@ -23,26 +23,25 @@
   transform: translate(-50%,-50%);
 }
 #city{
-  font-size: 20px;
+  font-size: 30px;
   text-align: center;
 }
 #status {
-  font-size: 15px;
+  font-size: 25px;
   text-align: center;
 }
 #weekday {
-  font-size: 15px;
+  font-size: 25px;
   text-align: center;
 }
 #datetime {
   position: absolute;
-  top:50%;
-  right:0;
-  width: 40px;
-  transform: translate(-50%,-50%);
+  top:20px;
+  right:0px;
+  width: 100px;
 }
 #date{
-  font-size: 15px;
+  font-size: 25px;
   text-align: center;
 }
 #time{
@@ -121,5 +120,6 @@
 }
 #detail-list p {
   display: inline-block;
-  vertical-align: -2px;
+  vertical-align: -5px;
+  font-size: 30px;
 }
