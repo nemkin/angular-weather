@@ -5,11 +5,11 @@ import { ForecastWeather } from '../forecast-weather';
 import { TemperaturePipe } from '../pipes/temperature.pipe';
 
 @Component({
-  selector: 'app-weather-detail',
-  templateUrl: './weather-detail.component.html',
-  styleUrls: ['./weather-detail.component.css']
+  selector: 'app-current-weather',
+  templateUrl: './current-weather.component.html',
+  styleUrls: ['./current-weather.component.css']
 })
-export class WeatherDetailComponent implements OnInit {
+export class CurrentWeatherComponent implements OnInit {
 
   @Input() city: string;
   currentWeather: CurrentWeather;

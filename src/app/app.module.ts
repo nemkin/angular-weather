@@ -5,16 +5,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AppConfigService } from './app-config.service';
-import { WeatherDetailComponent } from './weather-detail/weather-detail.component';
 import { TemperaturePipe } from './pipes/temperature.pipe';
 import { WindWidgetComponent } from './wind-widget/wind-widget.component';
+import { CurrentWeatherComponent } from './current-weather/current-weather.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    WeatherDetailComponent,
     TemperaturePipe,
     WindWidgetComponent,
+    CurrentWeatherComponent,
   ],
   imports: [
     BrowserModule,

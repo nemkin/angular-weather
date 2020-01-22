@@ -1,0 +1,79 @@
+* {
+  padding: 0px;
+  margin: 0px;
+}
+#main {
+    width: 500px;
+}
+#top {
+  position: relative;
+  height: 70px;
+  background-color: #ccc;
+}
+#status-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 70 px;
+  padding: 10px;
+}
+#city-status {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+#city{
+  font-size: 20px;
+  text-align: center;
+}
+#status {
+  font-size: 15px;
+  text-align: center;
+}
+#summary {
+  position: relative;
+  height: 250px;
+}
+/* This is the only way I could vertically align text inside a float.
+ * However, it looks like tables are not liked.
+ * https://stackoverflow.com/questions/12168145/vertically-center-content-of-floating-div
+ * https://colintoh.com/blog/display-table-anti-hero
+ */
+#temperature {
+  display: table;
+  float: left;
+  width: 50%;
+  height: 100%;
+}
+#temperature p {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 70px;
+}
+#summary-separator {
+  position: absolute;
+  width: 1px;
+  height: 80%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background-color: grey;
+}
+#wind-widget-container {
+  position: relative;
+  float: right;
+  width: 50%;
+  height: 100%;
+  box-sizing: border-box;
+}
+/* If I don't add the position:absolute attribute
+ * the height of the widget collapses. No idea why.
+ */
+#wind-widget {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}

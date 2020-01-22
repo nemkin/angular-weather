@@ -1,0 +1,24 @@
+<div id="main">
+  <div id="top">
+    <img id="status-img" height="50px" width="50px" src="{{ currentWeather.iconUrl }}"/>
+    <div id="city-status">
+      <p id="city">{{ currentWeather.city }}, {{ currentWeather.countryCode }}</p>
+      <p id="status">{{ currentWeather.description }}</p>
+    </div>
+  </div>
+  <div id="summary">
+    <div id="temperature">
+      <p>{{ currentWeather.temperatureInKelvin | temperature : 'K':'C' }} C°</p>
+    </div>
+    <div id="summary-separator"></div>
+    <div id="wind-widget-container">
+      <app-wind-widget id="wind-widget"
+        speedInMeterPerSecond="{{ currentWeather.windSpeedInMeterPerSecond }}"
+        directionInDegrees="{{ currentWeather.windDirectionInDegrees }}">
+      </app-wind-widget>
+    </div>
+  </div>
+  <div id=detail>
+
+  </div>
+</div>
