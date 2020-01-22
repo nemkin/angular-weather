@@ -8,6 +8,7 @@ import { AppConfigService } from './app-config.service';
 import { TemperaturePipe } from './pipes/temperature.pipe';
 import { WindWidgetComponent } from './wind-widget/wind-widget.component';
 import { CurrentWeatherComponent } from './current-weather/current-weather.component';
+import { MatTabsModule } from '@angular/material/tabs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
@@ -22,6 +23,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    MatTabsModule,
   ],
   providers: [
     {

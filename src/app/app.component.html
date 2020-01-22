@@ -1,2 +1,7 @@
-<app-current-weather city="London"></app-current-weather>
+<mat-tab-group [disableRipple]="true">
+  <mat-tab *ngFor="let city of cities"
+    label="{{ city }}">
+    <app-current-weather city="{{ city }}"></app-current-weather>
+  </mat-tab>
+</mat-tab-group>
 <router-outlet></router-outlet>

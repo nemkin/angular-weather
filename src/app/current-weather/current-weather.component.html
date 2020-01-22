@@ -1,4 +1,4 @@
-<div id="main">
+<div  id="main" *ngIf="currentWeather">
   <div id="top">
     <div id="city-status">
       <p id="city">{{ currentWeather.city }}, {{ currentWeather.countryCode }}</p>
