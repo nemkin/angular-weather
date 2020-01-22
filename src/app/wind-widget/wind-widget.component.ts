@@ -11,7 +11,7 @@ export class WindWidgetComponent implements OnInit {
   @Input() directionInDegrees: number;
 
   public readonly size = 1700;
-  public readonly innerTextSize = 280;
+  public readonly innerTextSize = 180;
   public readonly outerTextSize = 240;
   public readonly outerTextMargin = 20;
   public readonly strikeLength = 120;
@@ -76,7 +76,7 @@ export class WindWidgetComponent implements OnInit {
     this.context.textAlign = 'center';
     this.context.textBaseline = 'middle';
     this.context.fillStyle = this.grey;
-    this.context.fillText(`${this.speedInKilometerPerHour}`, 0, 0);
+    this.context.fillText(`${this.speedInKilometerPerHour} km/h`, 0, 0);
 
     this.context.restore();
   }

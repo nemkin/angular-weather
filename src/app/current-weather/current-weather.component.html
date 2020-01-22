@@ -4,6 +4,11 @@
     <div id="city-status">
       <p id="city">{{ currentWeather.city }}, {{ currentWeather.countryCode }}</p>
       <p id="status">{{ currentWeather.description }}</p>
+      <p id="weekday">{{ currentWeather.unixTime * 1000 | date:'EEEE' }}</p>
+    </div>
+    <div id="datetime">
+      <p id="date">{{ currentWeather.unixTime * 1000 | date:'MMM d' }}</p>
+      <p id="time">{{ currentWeather.unixTime * 1000 | date:'HH:mm' }}</p>
     </div>
   </div>
   <div id="summary">
@@ -19,6 +24,25 @@
     </div>
   </div>
   <div id=detail>
-
+    <ul id="detail-list">
+      <li>
+        <div>
+          <img src="/assets/icons/wi-barometer.svg"/>
+          <p>{{ currentWeather.pressureInHectoPascal }} hPa</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <img src="/assets/icons/wi-humidity.svg"/>
+          <p>{{ currentWeather.humidityPercent }}%</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <img src="/assets/icons/wi-cloudy.svg"/>
+          <p>{{ currentWeather.cloudinessPercent }}%</p>
+        </div>
+      </li>
+    </ul>
   </div>
 </div>
