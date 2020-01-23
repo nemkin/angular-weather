@@ -1,7 +1,6 @@
-<mat-tab-group>
+<mat-tab-group (selectedTabChange)="tabChanged($event)">
   <mat-tab *ngFor="let city of cities"
     label="{{ city }}">
-    <app-current-weather city="{{ city }}"></app-current-weather>
   </mat-tab>
   <mat-tab disabled>
     <ng-template mat-tab-label>
@@ -11,4 +10,7 @@
   </ng-template>
   </mat-tab>
 </mat-tab-group>
+
+<app-current-weather city="{{ currentCity }}"></app-current-weather>
+
 <router-outlet></router-outlet>

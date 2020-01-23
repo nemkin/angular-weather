@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatTabChangeEvent } from '@angular/material';
 import { AddCityDialogComponent } from './add-city-dialog/add-city-dialog.component';
 
 @Component({
@@ -10,6 +10,7 @@ import { AddCityDialogComponent } from './add-city-dialog/add-city-dialog.compon
 export class AppComponent {
   title = 'angular-weather';
   cities = ['London', 'Budapest', 'Warsaw'];
+  currentCity = 'London';
 
   constructor(
     public dialog: MatDialog,
@@ -23,5 +24,9 @@ export class AppComponent {
     dialogRef.afterClosed().subscribe(result => {
       this.cities.push(result);
     });
+  }
+
+  tabChanged(tabChangeEvent: MatTabChangeEvent): void {
+    this.currentCity = this.cities[tabChangeEvent.index];
   }
 }

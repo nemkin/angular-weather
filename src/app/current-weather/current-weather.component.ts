@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, OnChanges, Input } from '@angular/core';
 import { WeatherService } from '../weather.service';
 import { CurrentWeather } from '../current-weather';
 import { ForecastWeather } from '../forecast-weather';
@@ -9,7 +9,7 @@ import { TemperaturePipe } from '../pipes/temperature.pipe';
   templateUrl: './current-weather.component.html',
   styleUrls: ['./current-weather.component.css']
 })
-export class CurrentWeatherComponent implements OnInit {
+export class CurrentWeatherComponent implements OnInit, OnChanges {
 
   @Input() city: string;
   currentWeather: CurrentWeather;
@@ -18,6 +18,11 @@ export class CurrentWeatherComponent implements OnInit {
   constructor(private weatherService: WeatherService) { }
 
   ngOnInit() {
+    this.getCurrentWeather();
+    this.getForecastWeather();
+  }
+
+  ngOnChanges() {
     this.getCurrentWeather();
     this.getForecastWeather();
   }
