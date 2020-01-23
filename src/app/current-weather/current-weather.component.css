@@ -117,9 +117,15 @@
   display: table;
   margin: auto;
 }
-#detail-list img {
-  vertical-align: middle;
-}
+ #detail-list img {
+   vertical-align: middle;
+ }
+ #detail-list svg {
+   vertical-align: middle;
+   width: 40px;
+   height: 40px;
+   fill: #FFBF46;
+ }
 #detail-list p {
   display: inline-block;
   vertical-align: -5px;
