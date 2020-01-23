@@ -1,17 +1,18 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, APP_INITIALIZER } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
+import { MaterialModule } from './material/material.module';
+
 import { AppComponent } from './app.component';
 import { AppConfigService } from './app-config.service';
 import { TemperaturePipe } from './pipes/temperature.pipe';
 import { WindWidgetComponent } from './wind-widget/wind-widget.component';
 import { CurrentWeatherComponent } from './current-weather/current-weather.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatFormFieldModule, MatInputModule, MatDialogModule, MatTabsModule } from '@angular/material';
 import { AddCityDialogComponent } from './add-city-dialog/add-city-dialog.component';
-import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,16 +24,13 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
     BrowserAnimationsModule,
-    MatTabsModule,
+    HttpClientModule,
     FormsModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatDialogModule,
-    MatInputModule,
-    MatTabsModule,
+    ReactiveFormsModule,
+
+    AppRoutingModule,
+    MaterialModule,
   ],
   entryComponents: [ AddCityDialogComponent ],
   providers: [

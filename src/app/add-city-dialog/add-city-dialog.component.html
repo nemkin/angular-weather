@@ -2,7 +2,7 @@
 <div mat-dialog-content>
   <p>Add a new city:</p>
   <mat-form-field>
-    <input matInput [(ngModel)]="city">
+    <input matInput required [(ngModel)]="city" [formControl]="formControl">
   </mat-form-field>
 </div>
 <div mat-dialog-actions>

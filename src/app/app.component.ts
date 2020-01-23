@@ -22,7 +22,10 @@ export class AppComponent {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.cities.push(result);
+      if (result) {
+        console.log(result);
+        this.cities.push(result);
+      }
     });
   }
 
