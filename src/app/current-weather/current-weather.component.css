@@ -14,9 +14,8 @@
 }
 #status-img {
   position: absolute;
-  top: 0;
-  right: 0;
-  padding: 10px;
+  top: 10px;
+  right: 10px;
 }
 #city-status {
   position: absolute;
@@ -26,9 +25,9 @@
 }
 #datetime {
   position: absolute;
-  top:20px;
-  left:0px;
-  width: 120px;
+  top: 50%;
+  left: 30px;
+  transform: translate(0,-50%);
 }
 #top p {
   text-align: center;
@@ -50,91 +49,75 @@
   font-size: 18px;
 }
 #summary {
-  position: relative;
-  width: 100%;
+  display:flex;
   height: 250px;
   color: #648381;
-  background-color: #F4F4F2;
 }
-/* This is the only way I could vertically align text inside a float.
- * However, it looks like tables are not liked.
- * https://stackoverflow.com/questions/12168145/vertically-center-content-of-floating-div
- * https://colintoh.com/blog/display-table-anti-hero
- */
 #temperature {
-  display: table;
-  float: left;
-  width: 50%;
-  height: 100%;
-  transform: translate(15px, 0px);
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
 }
-#temperature p {
-  display: table-cell;
-  text-align: center;
-  vertical-align: middle;
+#temperature p:nth-child(1) {
   font-size: 70px;
+  flex-basis: 100px;
+  text-align: right;
+  padding: 3px;
+}
+#temperature p:nth-child(2) {
+  font-size: 70px;
+  flex-basis: 100px;
+  padding: 3px;
 }
 #summary-separator {
-  position: absolute;
-  width: 1px;
+  flex: 0 0 1px;
   height: 80%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
+  align-self: center;
   background-color: #648381;
 }
 #wind-widget-container {
-  position: relative;
-  float: right;
-  width: 50%;
-  height: 100%;
-  box-sizing: border-box;
+  display: flex;
+  flex: 1;
 }
-/* If I don't add the position:absolute attribute
- * the height of the widget collapses. No idea why.
- */
 #wind-widget {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%,-50%);
+  margin: auto;
 }
 #detail-list {
+  display: flex;
+  height: 120px;
   width: 100%;
-  height: 100px;
   color: #F4F4F2;
   background-color: #60606B;
+  align-items: center;
+  justify-content: left;
 }
 #detail-list li {
+  flex: 1;
   list-style: none;
-  float: left;
-  width: 33.3%;
-  padding: 20px 0px;
 }
 /* https://stackoverflow.com/questions/114543/how-to-horizontally-center-a-div
  */
 #detail-list div {
-  display: table;
-  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
- #detail-list img {
-   vertical-align: middle;
- }
- #detail-list svg {
-   vertical-align: middle;
-   width: 40px;
-   height: 40px;
-   fill: #FFBF46;
+#detail-list svg {
+  width: 40px;
+  height: 40px;
+  fill: #FFBF46;
  }
 #detail-list p {
-  display: inline-block;
-  vertical-align: -5px;
   font-size: 25px;
+  padding-left: 5px;
 }
+
 @media(max-width:600px) {
+
   #top {
+    padding: 20px;
     height: initial;
-    padding: 5px 15px;
   }
   #city-status {
     position: initial;
@@ -146,49 +129,33 @@
     position: initial;
     top: initial;
     left: initial;
-    width: initial;
+    transform: initial;
+    padding-top: 20px;
   }
   #top p {
     text-align: initial;
     line-height: 1.3em;
   }
+
   #summary {
+    flex-direction: column;
     height: initial;
   }
   #temperature {
-    display: table;
-    float: initial;
-    width: 100%;
-    height: 170px;
+    flex-basis: 150px;
   }
   #summary-separator {
-    position: initial;
-    width: 5%;
-    height: 1px;
-    top: initial;
-    left: initial;
-    transform: translate(950%,0%);
-    background-color: grey;
+    height: initial;
+    width: 10%
   }
   #wind-widget-container {
-    float: initial;
-    width: 100%;
-    height: 280px;
-    box-sizing: border-box;
-  }
-  #detail-list {
-    padding-left: 20px;
-    box-sizing: border-box;
-  }
-  #detail-list li {
-    float: none;
-    width: initial;
-  }
-  #detail-list div {
-    display: initial;
-    margin: initial;
+    flex-basis: 250px;
   }
   #detail-list {
     height: initial;
+    flex-direction: column;
+  }
+  #detail-list li {
+    padding: 10px;
   }
 }
