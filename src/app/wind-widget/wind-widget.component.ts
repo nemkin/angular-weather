@@ -3,7 +3,7 @@ import { Component, OnInit, OnChanges, Input } from '@angular/core';
 @Component({
   selector: 'app-wind-widget',
   templateUrl: './wind-widget.component.html',
-  styleUrls: ['./wind-widget.component.css']
+  styleUrls: ['./wind-widget.component.scss']
 })
 export class WindWidgetComponent implements OnInit, OnChanges {
 

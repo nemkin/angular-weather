@@ -5,7 +5,7 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 @Component({
   selector: 'app-add-city-dialog',
   templateUrl: './add-city-dialog.component.html',
-  styleUrls: ['./add-city-dialog.component.css']
+  styleUrls: ['./add-city-dialog.component.scss']
 })
 export class AddCityDialogComponent {
 
