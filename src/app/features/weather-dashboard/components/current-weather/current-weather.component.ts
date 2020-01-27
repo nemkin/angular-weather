@@ -1,6 +1,6 @@
 import { Component, OnInit, OnChanges, Input } from '@angular/core';
-import { WeatherService } from '../weather.service';
-import { CurrentWeather } from '../current-weather';
+import { WeatherService } from 'src/app/shared/services/weather-service/weather.service';
+import { CurrentWeather } from 'src/app/shared/models/current-weather';
 
 @Component({
   selector: 'app-current-weather',

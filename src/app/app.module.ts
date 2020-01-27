@@ -1,47 +1,28 @@
 import { NgModule, APP_INITIALIZER } from '@angular/core';
-import { DatePipe } from '@angular/common';
+import { AppConfigService } from './app-config.service';
+import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
+
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgxChartsModule } from '@swimlane/ngx-charts';
 
-import { AppRoutingModule } from './app-routing.module';
-import { MaterialModule } from './material/material.module';
+import { MaterialModule } from 'src/app/material/material.module';
 
-import { AppComponent } from './app.component';
-import { AppConfigService } from './app-config.service';
-import { TemperaturePipe } from './pipes/temperature.pipe';
-import { ChartTemperaturePipe } from './pipes/chart-temperature.pipe';
-import { WindWidgetComponent } from './wind-widget/wind-widget.component';
-import { CurrentWeatherComponent } from './current-weather/current-weather.component';
-import { AddCityDialogComponent } from './add-city-dialog/add-city-dialog.component';
-import { ForecastWeatherComponent } from './forecast-weather/forecast-weather.component';
-import { CityValidatorDirective } from './add-city-dialog/validators/city-validator.directive';
+import { WeatherDashboardModule } from 'src/app/features/weather-dashboard/weather-dashboard.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TemperaturePipe,
-    WindWidgetComponent,
-    CurrentWeatherComponent,
-    AddCityDialogComponent,
-    ForecastWeatherComponent,
-    ChartTemperaturePipe,
-    CityValidatorDirective,
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
-    HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule,
-    NgxChartsModule,
-
-    AppRoutingModule,
     MaterialModule,
+
+    WeatherDashboardModule
   ],
-  entryComponents: [ AddCityDialogComponent ],
+  entryComponents: [],
   providers: [
     {
       provide: APP_INITIALIZER,
@@ -53,8 +34,6 @@ import { CityValidatorDirective } from './add-city-dialog/validators/city-valida
         };
       }
     },
-    DatePipe,
-    TemperaturePipe,
   ],
   bootstrap: [AppComponent]
 })

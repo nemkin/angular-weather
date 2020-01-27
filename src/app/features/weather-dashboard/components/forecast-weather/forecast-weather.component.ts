@@ -1,8 +1,8 @@
 import { Component, OnInit, OnChanges, Input } from '@angular/core';
-import { WeatherService } from '../weather.service';
-import { ForecastWeather } from '../forecast-weather';
+import { WeatherService } from '../../../../shared/services/weather-service/weather.service';
+import { ForecastWeather } from '../../../../shared/models/forecast-weather';
 import { DatePipe } from '@angular/common';
-import { TemperaturePipe } from '../pipes/temperature.pipe';
+import { TemperaturePipe } from '../../../../shared/pipes/temperature.pipe';
 
 @Component({
   selector: 'app-forecast-weather',

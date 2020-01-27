@@ -1,8 +1,8 @@
 import { Directive } from '@angular/core';
-import { WeatherService } from 'src/app/weather.service';
-import { Observable, of } from 'rxjs';
-import { ValidationErrors, AbstractControl } from '@angular/forms';
+import { WeatherService } from 'src/app/shared/services/weather-service/weather.service';
+import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { ValidationErrors, AbstractControl } from '@angular/forms';
 
 @Directive({
   selector: '[appCityValidator]'

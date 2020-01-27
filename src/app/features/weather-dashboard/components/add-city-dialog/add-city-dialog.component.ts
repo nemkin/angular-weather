@@ -2,7 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { FormControl, ReactiveFormsModule, Validators, FormGroup, FormBuilder } from '@angular/forms';
 
-import { CityValidatorDirective } from './validators/city-validator.directive';
+import { CityValidatorDirective } from 'src/app/shared/shared.module';
 
 @Component({
   selector: 'app-add-city-dialog',

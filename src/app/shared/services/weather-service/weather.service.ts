@@ -3,13 +3,11 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 
-import { CurrentWeather } from './current-weather';
-import { ForecastWeather } from './forecast-weather';
-import { AppConfigService } from './app-config.service';
+import { CurrentWeather } from '../../models/current-weather';
+import { ForecastWeather } from '../../models/forecast-weather';
+import { AppConfigService } from 'src/app/app-config.service';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class WeatherService {
 
   private currentWeatherBaseUrl = 'https://api.openweathermap.org/data/2.5/weather';

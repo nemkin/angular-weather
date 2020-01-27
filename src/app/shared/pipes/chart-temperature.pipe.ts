@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { TemperaturePipe } from './temperature.pipe';
-import { ForecastWeather } from '../forecast-weather';
+import { ForecastWeather } from '../models/forecast-weather';
 
 @Pipe({
   name: 'chartTemperature'

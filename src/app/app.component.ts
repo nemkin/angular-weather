@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatDialog, MatTabChangeEvent } from '@angular/material';
-import { AddCityDialogComponent } from './add-city-dialog/add-city-dialog.component';
+import { AddCityDialogComponent } from './features/weather-dashboard/components/add-city-dialog/add-city-dialog.component';
 
 @Component({
   selector: 'app-root',
