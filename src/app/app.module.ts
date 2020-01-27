@@ -1,14 +1,13 @@
 import { NgModule, APP_INITIALIZER } from '@angular/core';
-import { AppConfigService } from './app-config.service';
-import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module';
-
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MaterialModule } from 'src/app/material/material.module';
-
 import { WeatherDashboardModule } from 'src/app/features/weather-dashboard/weather-dashboard.module';
+
+import { AppConfigService } from './app-config.service';
+import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -20,9 +19,8 @@ import { WeatherDashboardModule } from 'src/app/features/weather-dashboard/weath
     BrowserAnimationsModule,
     MaterialModule,
 
-    WeatherDashboardModule
+    WeatherDashboardModule,
   ],
-  entryComponents: [],
   providers: [
     {
       provide: APP_INITIALIZER,

@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
-import { FormControl, ReactiveFormsModule, Validators, FormGroup, FormBuilder } from '@angular/forms';
+import { Validators, FormGroup, FormBuilder } from '@angular/forms';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 import { CityValidatorDirective } from 'src/app/shared/shared.module';
 
@@ -39,4 +39,5 @@ export class AddCityDialogComponent implements OnInit {
   hasError(controlName: string, errorName: string) {
     return this.form.controls[controlName].hasError(errorName);
   }
+
 }

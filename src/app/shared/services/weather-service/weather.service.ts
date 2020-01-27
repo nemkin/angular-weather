@@ -3,9 +3,10 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 
+import { AppConfigService } from 'src/app/app-config.service';
+
 import { CurrentWeather } from '../../models/current-weather';
 import { ForecastWeather } from '../../models/forecast-weather';
-import { AppConfigService } from 'src/app/app-config.service';
 
 @Injectable()
 export class WeatherService {
