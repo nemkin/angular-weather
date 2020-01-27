@@ -17,7 +17,7 @@
   </div>
   <div id="summary">
     <div id="temperature" title="Temperature">
-      <p>{{ currentWeather.temperatureInKelvin | temperature : 'K':'C' }}</p>
+      <p>{{ currentWeather.temperatureInKelvin | temperature:'K':'C' |  number:'1.1-1'}}</p>
       <p>C°</p>
     </div>
     <div id="summary-separator"></div>

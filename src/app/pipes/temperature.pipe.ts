@@ -5,12 +5,12 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class TemperaturePipe implements PipeTransform {
 
-  transform(temperature: number, fromUnit: string, toUnit: string): string {
+  transform(temperature: number, fromUnit: string, toUnit: string): number {
 
     if (!isNaN(temperature)) {
 
       if (fromUnit === toUnit) {
-        return temperature.toString();
+        return temperature;
       }
 
       const temperatureInCelsius = ((t) => {
@@ -33,9 +33,9 @@ export class TemperaturePipe implements PipeTransform {
             `Unknown temperature unit identifier '${toUnit}'. Choose from 'K','F','C'.`
           );
         }
-      })(temperatureInCelsius)
-      .toFixed(0);
+      })(temperatureInCelsius);
     }
+
     return null;
   }
 }
