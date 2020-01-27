@@ -17,6 +17,7 @@ import { WindWidgetComponent } from './wind-widget/wind-widget.component';
 import { CurrentWeatherComponent } from './current-weather/current-weather.component';
 import { AddCityDialogComponent } from './add-city-dialog/add-city-dialog.component';
 import { ForecastWeatherComponent } from './forecast-weather/forecast-weather.component';
+import { CityValidatorDirective } from './add-city-dialog/validators/city-validator.directive';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { ForecastWeatherComponent } from './forecast-weather/forecast-weather.co
     AddCityDialogComponent,
     ForecastWeatherComponent,
     ChartTemperaturePipe,
+    CityValidatorDirective,
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
 
 import { CurrentWeather } from './current-weather';
 import { ForecastWeather } from './forecast-weather';
@@ -22,8 +22,14 @@ export class WeatherService {
     private http: HttpClient,
   ) { }
 
-  getCurrentWeather(city: string): Observable<CurrentWeather> {
+  isCityValid(city: string): Observable<boolean> {
+    return this.http.get<any>(`${this.currentWeatherBaseUrl}?appid=${this.appConfig.openWeatherApiKey}&q=${city}`).pipe(
+      map(_ => true),
+      catchError(result => of(false))
+    );
+  }
 
+  getCurrentWeather(city: string): Observable<CurrentWeather> {
     return this.http.get<any>(`${this.currentWeatherBaseUrl}?appid=${this.appConfig.openWeatherApiKey}&q=${city}`).pipe(
       map(
         result => {
@@ -48,7 +54,6 @@ export class WeatherService {
   }
 
   getForecastWeather(city: string): Observable<ForecastWeather> {
-
     return this.http.get<any>(`${this.forecastWeatherBaseUrl}?appid=${this.appConfig.openWeatherApiKey}&q=${city}`).pipe(
       map(
         result => {
@@ -60,4 +65,5 @@ export class WeatherService {
       )
     );
   }
+
 }

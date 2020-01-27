@@ -3,7 +3,7 @@
   <mat-form-field>
     <input matInput placeholder="City" formControlName="city">
     <mat-error *ngIf="hasError('city', 'required')">City is required</mat-error>
-    <mat-error *ngIf="hasError('city', 'maxlength')">City name maximum 5 characters</mat-error>
+    <mat-error *ngIf="hasError('city', 'cityValidator')">Can't find city</mat-error>
   </mat-form-field>
 </mat-dialog-content>
 <mat-dialog-actions>
