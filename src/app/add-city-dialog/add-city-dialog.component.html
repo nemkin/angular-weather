@@ -1,11 +1,12 @@
 <h1 mat-dialog-title>New City</h1>
-<div mat-dialog-content>
-  <p>Add a new city:</p>
+<mat-dialog-content [formGroup]="form">
   <mat-form-field>
-    <input matInput required [(ngModel)]="city" [formControl]="formControl">
+    <input matInput placeholder="City" formControlName="city">
+    <mat-error *ngIf="hasError('city', 'required')">City is required</mat-error>
+    <mat-error *ngIf="hasError('city', 'maxlength')">City name maximum 5 characters</mat-error>
   </mat-form-field>
-</div>
-<div mat-dialog-actions>
+</mat-dialog-content>
+<mat-dialog-actions>
   <button mat-button (click)="onCancel()">Cancel</button>
-  <button mat-button [mat-dialog-close]="city" cdkFocusInitial>Add</button>
-</div>
+  <button mat-raised-button (click)="onAdd()" cdkFocusInitial>Add</button>
+</mat-dialog-actions>

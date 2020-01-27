@@ -17,9 +17,7 @@ export class AppComponent {
   ) {}
 
   addTab(): void {
-    const dialogRef = this.dialog.open(AddCityDialogComponent, {
-      width: '600px'
-    });
+    const dialogRef = this.dialog.open(AddCityDialogComponent);
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {

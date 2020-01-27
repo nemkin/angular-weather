@@ -5,7 +5,7 @@ import {
   MatDialogModule,
   MatFormFieldModule,
   MatInputModule,
-  MatTabsModule
+  MatTabsModule,
 } from '@angular/material';
 
 const MaterialComponents = [
