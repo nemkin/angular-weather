@@ -19,21 +19,14 @@ export class ForecastWeatherComponent implements OnInit, OnChanges {
   @Input() city: string;
   forecastWeather: ForecastWeather[];
 
-  view: any[] = [800, 300];
-
-  legend = false;
-  showLabels = true;
-  animations = true;
   xAxis = true;
   yAxis = true;
-  showXAxisLabel = true;
-  showYAxisLabel = true;
+
   xAxisLabel = 'Time';
   yAxisLabel = 'Temperature';
-  timeline = false;
 
   colorScheme = {
-    domain: ['#5AA454', '#E44D25', '#CFC0BB', '#7aa3e5', '#a8385d', '#aae3f5']
+    domain: ['#FFBF46']
   };
 
   xAxisTickFormatting = (unixTime: number) => this.datePipe.transform(unixTime * 1000, 'EE H:MM');
