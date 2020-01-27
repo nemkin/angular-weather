@@ -1,7 +1,4 @@
 export class ForecastWeather {
-  city: string;
-  countryCode: string;
-
-  unixTime: number[];
-  temperatureInKelvin: number[];
+  name: string;
+  series: { name: string, value: number }[];
 }

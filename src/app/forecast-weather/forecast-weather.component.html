@@ -1,0 +1,7 @@
+<ngx-charts-line-chart
+*ngIf="forecastWeather"
+[view]="view"
+[results]="forecastWeather | chartTemperature : 'K':'C'"
+>
+</ngx-charts-line-chart
+>

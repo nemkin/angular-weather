@@ -36,7 +36,6 @@ export class TemperaturePipe implements PipeTransform {
       })(temperatureInCelsius)
       .toFixed(0);
     }
-
     return null;
   }
 }

@@ -28,8 +28,7 @@ export class WeatherService {
       map(
         result => {
           return {
-            city: result.name,
-            countryCode: result.sys.country,
+            city: `${result.name}, ${result.sys.country}`,
             unixTime: result.dt,
 
             description: result.weather[0].main,
@@ -54,11 +53,8 @@ export class WeatherService {
       map(
         result => {
           return {
-            city: result.city.name,
-            countryCode: result.city.country,
-
-            unixTime: result.list.map(item => item.dt),
-            temperatureInKelvin: result.list.map(item => item.main.temp),
+            name: `${result.city.name}, ${result.city.country}`,
+            series: result.list.map(item => ({name: item.dt, value: item.main.temp}))
           } as ForecastWeather;
         }
       )
