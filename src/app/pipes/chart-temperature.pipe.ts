@@ -15,7 +15,7 @@ export class ChartTemperaturePipe implements PipeTransform {
         series: forecastWeather.series.map(
           item => ({
             name: item.name,
-            value: new TemperaturePipe().transform(item.value, fromUnit, toUnit)
+            value: +new TemperaturePipe().transform(item.value, fromUnit, toUnit)
           })
         )
       })

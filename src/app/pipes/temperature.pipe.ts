@@ -5,12 +5,12 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class TemperaturePipe implements PipeTransform {
 
-  transform(temperature: number, fromUnit: string, toUnit: string) {
+  transform(temperature: number, fromUnit: string, toUnit: string): string {
 
-    if (temperature && !isNaN(temperature)) {
+    if (!isNaN(temperature)) {
 
       if (fromUnit === toUnit) {
-        return temperature;
+        return temperature.toString();
       }
 
       const temperatureInCelsius = ((t) => {

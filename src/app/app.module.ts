@@ -1,4 +1,5 @@
 import { NgModule, APP_INITIALIZER } from '@angular/core';
+import { DatePipe } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
@@ -49,7 +50,9 @@ import { ForecastWeatherComponent } from './forecast-weather/forecast-weather.co
           return appConfigService.load();
         };
       }
-    }
+    },
+    DatePipe,
+    TemperaturePipe,
   ],
   bootstrap: [AppComponent]
 })
