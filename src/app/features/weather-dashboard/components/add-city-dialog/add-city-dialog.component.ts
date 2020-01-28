@@ -2,13 +2,13 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
-import { CityValidatorDirective } from 'src/app/shared/shared.module';
+//import { CityValidatorDirective } from 'src/app/shared/shared.module';
 
 @Component({
   selector: 'app-add-city-dialog',
   templateUrl: './add-city-dialog.component.html',
   styleUrls: ['./add-city-dialog.component.scss'],
-  providers: [CityValidatorDirective]
+  //providers: [CityValidatorDirective]
 })
 export class AddCityDialogComponent implements OnInit {
 
@@ -17,10 +17,10 @@ export class AddCityDialogComponent implements OnInit {
   constructor(
     formBuilder: FormBuilder,
     private dialogRef: MatDialogRef<AddCityDialogComponent>,
-    public cityValidator: CityValidatorDirective,
+    //public cityValidator: CityValidatorDirective,
     @Inject(MAT_DIALOG_DATA) city: string) {
       this.form = formBuilder.group({
-        city: [city, { validators: [Validators.required], asyncValidators: [cityValidator] }]
+        city: [city, { validators: [Validators.required], asyncValidators: [/*cityValidator*/] }]
       });
     }
 
