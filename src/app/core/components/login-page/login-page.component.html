@@ -1,1 +1,14 @@
-<p>login-page works!</p>
+<div class="main">
+  <form [formGroup]="loginForm" class="form-container">
+    <h2>Register</h2>
+    <mat-form-field>
+        <mat-label for="username">Username</mat-label>
+        <input matInput formControlName="username" type="text">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label for="password">Password</mat-label>
+        <input matInput formControlName="password" type="password"/>
+    </mat-form-field>
+    <button mat-raised-button type="submit" (click)="onSubmit(loginForm.value)">Submit</button>
+  </form>
+</div>

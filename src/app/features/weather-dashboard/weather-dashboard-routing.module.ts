@@ -6,7 +6,7 @@ import { DashboardPageComponent } from './components/dashboard-page/dashboard-pa
 
 const routes: Routes = [
   {
-    path: '',
+    path: ':username',
     component: DashboardPageComponent
   }
 ];
