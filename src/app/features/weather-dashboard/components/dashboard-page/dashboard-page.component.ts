@@ -41,4 +41,9 @@ export class DashboardPageComponent implements OnInit {
       }
     });
   }
+
+  removeTab(i: number): void {
+    this.cities.splice(i, 1);
+  }
+
 }

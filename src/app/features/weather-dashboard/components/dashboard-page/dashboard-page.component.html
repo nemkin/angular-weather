@@ -1,7 +1,12 @@
 <div id="main">
   <mat-tab-group [(selectedIndex)]=selectedTab>
-    <mat-tab *ngFor="let city of cities"
-     label="{{ city }}">
+    <mat-tab *ngFor="let city of cities; let i = index" [attr.data-index]="i">
+     <ng-template mat-tab-label>
+      {{ city }}
+      <button mat-icon-button class="removeTab" (click)="removeTab(i)">
+        x
+     </button>
+      </ng-template>
     </mat-tab>
     <mat-tab disabled>
       <ng-template mat-tab-label>
