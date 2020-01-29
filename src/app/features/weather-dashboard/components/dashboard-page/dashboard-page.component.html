@@ -1,6 +1,6 @@
-<div id="main">
+<div *ngIf="cityList" id="main">
   <mat-tab-group [(selectedIndex)]=selectedTab>
-    <mat-tab *ngFor="let city of cities; let i = index" [attr.data-index]="i">
+    <mat-tab *ngFor="let city of cityList.cities; let i = index" [attr.data-index]="i">
      <ng-template mat-tab-label>
       {{ city }}
       <button mat-icon-button class="removeTab" (click)="removeTab(i)">
@@ -17,10 +17,12 @@
     </mat-tab>
   </mat-tab-group>
 
-  <app-current-weather *ngIf="cities.length !== 0" city="{{ cities[selectedTab] }}"></app-current-weather>
-  <app-forecast-weather *ngIf="cities.length !== 0" city="{{ cities[selectedTab] }}"></app-forecast-weather>
+  <app-current-weather *ngIf="cityList.cities.length !== 0" city="{{ cityList.cities[selectedTab] }}"></app-current-weather>
+  <app-forecast-weather *ngIf="cityList.cities.length !== 0" city="{{ cityList.cities[selectedTab] }}"></app-forecast-weather>
 
-  <div id="empty" *ngIf="cities.length === 0" >
+  <div id="empty" *ngIf="cityList.cities.length === 0" >
     <p>No cities</p>
   </div>
 </div>
+
+<p *ngIf="cityList === null">Oh noes</p>

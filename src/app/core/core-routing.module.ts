@@ -5,7 +5,8 @@ import { LoginPageComponent } from './components/login-page/login-page.component
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'a',
+    pathMatch: 'full',
     component: LoginPageComponent
   }
 ];
@@ -14,4 +15,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class CoreRoutingModule { }
+export class CoreRoutingModule {}

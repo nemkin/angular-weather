@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { UserService } from '../../services/user.service';
+import { DatabaseService } from '../../services/database.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { User } from '../../models/user';
 
 @Component({
   selector: 'app-login-page',
@@ -17,20 +16,23 @@ export class LoginPageComponent implements OnInit {
   constructor(
     private router: Router,
     private formBuilder: FormBuilder,
-    private userAuth: UserService) {
+    private db: DatabaseService) {
       this.loginForm = this.formBuilder.group({
-        username: [''],
+        name: [''],
         password: ['']
       });
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
-  onSubmit(user: User) {
-    if (this.userAuth.authenticateUser(user)) {
-      this.router.navigate([`/dashboard/${user.username}`]);
-    }
+  onSubmit(userData: {name: string, password: string}) {
+    this.db.registerUser(userData).subscribe(
+      (result) => {
+        if (result.success) {
+          this.router.navigate([`/dashboard`]);
+        }
+      }
+    );
   }
 
 }

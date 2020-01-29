@@ -3,10 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { DashboardPageComponent } from './components/dashboard-page/dashboard-page.component';
 
-
 const routes: Routes = [
   {
-    path: ':username',
+    path: '',
     component: DashboardPageComponent
   }
 ];

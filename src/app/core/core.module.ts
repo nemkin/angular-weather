@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { MaterialModule } from 'src/app/material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { UserService } from './services/user.service';
+import { DatabaseService } from './services/database.service';
 import { CoreRoutingModule } from './core-routing.module';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 
@@ -18,7 +18,7 @@ import { LoginPageComponent } from './components/login-page/login-page.component
     LoginPageComponent,
   ],
   providers: [
-    UserService,
+    DatabaseService,
   ]
 })
 export class CoreModule { }
