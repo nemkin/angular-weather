@@ -1,4 +1,4 @@
-<div>
+<div id="main">
   <mat-tab-group [(selectedIndex)]=selectedTab>
     <mat-tab *ngFor="let city of cities"
      label="{{ city }}">
@@ -12,8 +12,8 @@
     </mat-tab>
   </mat-tab-group>
 
-  <app-current-weather *ngIf="cities.length > 0" city="{{ cities[selectedTab] }}"></app-current-weather>
-  <app-forecast-weather *ngIf="cities.length > 0" city="{{ cities[selectedTab] }}"></app-forecast-weather>
+  <app-current-weather city="{{ cities[selectedTab] }}"></app-current-weather>
+  <app-forecast-weather city="{{ cities[selectedTab] }}"></app-forecast-weather>
 
   <div id="empty" *ngIf="cities.length === 0" >
     <p>No cities</p>

@@ -1,5 +1,5 @@
-<div id=main>
-  <div id=forecast-weather-container>
+<div id="main">
+  <div id="forecast-weather-container">
     <ngx-charts-line-chart
       *ngIf="forecastWeather"
       [results]="forecastWeather | chartTemperature : 'K':'C'"

@@ -43,10 +43,9 @@ export class ForecastWeatherComponent implements OnInit, OnChanges {
 
   getForecastWeather(): void {
     this.weatherService.getForecastWeather(this.city).subscribe(
-      forecastWeather => {
-        this.forecastWeather = [forecastWeather];
-        console.log(forecastWeather);
-    });
+      data =>  this.forecastWeather = [data],
+      _ => this.forecastWeather = null
+    );
   }
 
 }
