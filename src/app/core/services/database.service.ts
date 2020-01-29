@@ -145,11 +145,25 @@ export class DatabaseService {
     return of(this._loggedInUserCities);
   }
 
-  public addCityToLoggedInUser(city: string): void {
+  public addCityToLoggedInUser(city: string): Observable<{ success: boolean, reason: string }> {
+    const sameCity = this._loggedInUserCities.cities.find((c: string) => c === city);
+
+    if (exists(sameCity)) {
+      return of({
+        success: false,
+        reason: 'City already exists'
+      });
+    }
+
     this._loggedInUserCities = {
       userId: this._loggedInUserCities.userId,
       cities: this._loggedInUserCities.cities.concat([city])
     } as CityList;
+
+    return of({
+      success: true,
+      reason: ''
+    });
   }
 
   public removeCityFromLoggedInUser(city: string): void {

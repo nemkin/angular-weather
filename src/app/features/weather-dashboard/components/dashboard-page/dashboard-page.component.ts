@@ -39,7 +39,11 @@ export class DashboardPageComponent implements OnInit {
     const dialogRef = this.dialog.open(AddCityDialogComponent);
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.db.addCityToLoggedInUser(result);
+        this.db.addCityToLoggedInUser(result).subscribe(result2 => {
+          if (!result2.success) {
+            console.log('City already exists.');
+          }
+        });
       }
     });
   }
