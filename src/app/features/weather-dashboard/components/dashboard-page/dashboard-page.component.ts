@@ -43,13 +43,25 @@ export class DashboardPageComponent implements OnInit {
           if (!result2.success) {
             console.log('City already exists.');
           }
+          this.selectCity(result);
         });
       }
     });
   }
 
   removeTab(i: number): void {
+    if (this.selectedTab === i) {
+      this.selectedTab = Math.max((i - 1), 0);
+    }
     this.db.removeCityFromLoggedInUser(this.cityList.cities[i]);
   }
 
+  selectCity(city: string): void {
+    const index = this.cityList.cities.findIndex((c: string) => (c === city));
+    if (index !== null && index !== undefined) {
+      this.selectedTab = index;
+    } else {
+      this.selectedTab = 0;
+    }
+  }
 }
