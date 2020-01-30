@@ -5,19 +5,19 @@ import { DatabaseService } from '../../services/database.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
-  selector: 'app-login-page',
-  templateUrl: './login-page.component.html',
-  styleUrls: ['./login-page.component.scss']
+  selector: 'app-register-page',
+  templateUrl: './register-page.component.html',
+  styleUrls: ['./register-page.component.scss']
 })
-export class LoginPageComponent implements OnInit {
+export class RegisterPageComponent implements OnInit {
 
-  loginForm: FormGroup;
+  registerForm: FormGroup;
 
   constructor(
     private router: Router,
     private formBuilder: FormBuilder,
     private db: DatabaseService) {
-      this.loginForm = this.formBuilder.group({
+      this.registerForm = this.formBuilder.group({
         name: [''],
         password: ['']
       });
@@ -26,10 +26,10 @@ export class LoginPageComponent implements OnInit {
   ngOnInit() {}
 
   onSubmit(userData: {name: string, password: string}) {
-    this.db.loginUser(userData).subscribe(
+    this.db.registerUser(userData).subscribe(
       (result) => {
-        if (result) {
-          this.router.navigate([`/dashboard`]);
+        if (result.success) {
+          this.router.navigate(['/dashboard']);
         }
       }
     );

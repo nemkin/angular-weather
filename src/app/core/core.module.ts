@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DatabaseService } from './services/database.service';
 import { CoreRoutingModule } from './core-routing.module';
 import { LoginPageComponent } from './components/login-page/login-page.component';
+import { RegisterPageComponent } from './components/register-page/register-page.component';
 
 @NgModule({
   imports: [
@@ -16,6 +17,7 @@ import { LoginPageComponent } from './components/login-page/login-page.component
   ],
   declarations: [
     LoginPageComponent,
+    RegisterPageComponent,
   ],
   providers: [
     DatabaseService,

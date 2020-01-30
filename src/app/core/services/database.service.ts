@@ -36,12 +36,20 @@ export class DatabaseService {
     this.loggedInUserCityListSubscription.next(this._loggedInUserCities);
   }
 
-  public get loggedInUser(): Observable<User> {
+  public get loggedInUserChanges(): Observable<User> {
     return this.loggedInUserSubscription.asObservable();
   }
 
-  public get loggedInUserCityList(): Observable<CityList> {
+  public get loggedInUserCityListChanges(): Observable<CityList> {
     return this.loggedInUserCityListSubscription.asObservable();
+  }
+
+  public getLoggedInUser(): Observable<User> {
+    return of(this._loggedInUser);
+  }
+
+  public getLoggedInUserCityList(): Observable<CityList> {
+    return of(this._loggedInUserCities);
   }
 
   private get _loggedInUser(): User {
@@ -70,7 +78,7 @@ export class DatabaseService {
   }
 
   private get _loggedInUserCities(): CityList {
-    if(exists(this.loggedInUser)) {
+    if (exists(this._loggedInUser)) {
       return this._cityLists.find((cl: CityList) => (cl.userId === this._loggedInUser.id));
     } else {
       return null;
@@ -139,10 +147,6 @@ export class DatabaseService {
         )
       );
     }
-  }
-
-  public getCityListForLoggedInUser(): Observable<CityList> {
-    return of(this._loggedInUserCities);
   }
 
   public addCityToLoggedInUser(city: string): Observable<{ success: boolean, reason: string }> {

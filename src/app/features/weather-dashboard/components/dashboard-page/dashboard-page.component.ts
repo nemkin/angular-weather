@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { MatDialog, MatTabChangeEvent } from '@angular/material';
+import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material';
 
 import { AddCityDialogComponent } from '../add-city-dialog/add-city-dialog.component';
 import { DatabaseService } from 'src/app/core/services/database.service';
@@ -15,26 +15,43 @@ import { User } from 'src/app/core/models/user';
 export class DashboardPageComponent implements OnInit {
 
   title = 'angular-weather';
+  user: User;
   cityList: CityList;
   selectedTab = 0;
 
   @ViewChild('tabGroup', {static: false}) tabGroup;
 
   constructor(
-    private route: ActivatedRoute,
+    private router: Router,
     private db: DatabaseService,
     public dialog: MatDialog,
   ) {}
 
   ngOnInit(): void {
-    this.db.getCityListForLoggedInUser().subscribe((cl: CityList) => {
+    this.db.getLoggedInUser().subscribe((u: User) => {
+      this.user = u;
+    });
+    this.db.loggedInUserChanges.subscribe((u: User) => {
+      this.user = u;
+    });
+
+    this.db.getLoggedInUserCityList().subscribe((cl: CityList) => {
       this.cityList = cl;
     });
-    this.db.loggedInUserCityList.subscribe((cl: CityList) => {
+    this.db.loggedInUserCityListChanges.subscribe((cl: CityList) => {
       this.cityList = cl;
     });
   }
 
+  logout(): void {
+    this.db.logoutCurrentUser().subscribe((result: boolean) => {
+      if (result) {
+        console.log("Received:");
+        console.log(result);
+        this.router.navigate(['/account/login']);
+      }
+    });
+  }
   addTab(): void {
     const dialogRef = this.dialog.open(AddCityDialogComponent);
     dialogRef.afterClosed().subscribe(result => {
