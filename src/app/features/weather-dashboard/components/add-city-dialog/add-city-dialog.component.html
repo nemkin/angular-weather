@@ -1,7 +1,7 @@
 <h1 mat-dialog-title>New City</h1>
 <mat-dialog-content [formGroup]="form">
   <mat-form-field>
-    <input matInput placeholder="City" formControlName="city">
+    <input matInput cdkFocusInitial placeholder="City" formControlName="city">
     <mat-error *ngIf="hasError('city', 'required')">City is required</mat-error>
     <mat-error *ngIf="hasError('city', 'cityValidator')">Can't find city</mat-error>
   </mat-form-field>
