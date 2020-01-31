@@ -10,5 +10,6 @@
         <input matInput formControlName="password" type="password"/>
     </mat-form-field>
     <button mat-raised-button type="submit" (click)="onSubmit(registerForm.value)">Register</button>
+    <p *ngIf="errorMessage" class="errors">{{ errorMessage }}</p>
   </form>
 </div>

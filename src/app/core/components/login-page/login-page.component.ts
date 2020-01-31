@@ -11,6 +11,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 })
 export class LoginPageComponent implements OnInit {
 
+  public errorMessage: string;
   loginForm: FormGroup;
 
   constructor(
@@ -28,8 +29,10 @@ export class LoginPageComponent implements OnInit {
   onSubmit(userData: {name: string, password: string}) {
     this.db.loginUser(userData).subscribe(
       (result) => {
-        if (result) {
+        if (result.success) {
           this.router.navigate([`/dashboard`]);
+        }  else {
+          this.errorMessage = result.reason;
         }
       }
     );

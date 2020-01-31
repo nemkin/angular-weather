@@ -97,14 +97,20 @@ export class DatabaseService {
     ));
   }
 
-  public loginUser(userData: {name: string, password: string}): Observable<boolean> {
+  public loginUser(userData: {name: string, password: string}): Observable<{ success: boolean, reason: string }> {
     return this.authenticateUser(userData).pipe(
       map((user: User) => {
         if (exists(user)) {
           this._loggedInUser = user;
-          return true;
+          return {
+            success: true,
+            reason: ''
+          };
         }
-        return false;
+        return {
+          success: false,
+          reason: 'Username and password do not match'
+        };
       }
     ));
   }
@@ -136,16 +142,7 @@ export class DatabaseService {
       } as CityList;
       this._users = this._users.concat([user]);
       this._cityLists = this._cityLists.concat([cityList]);
-      return this.loginUser(user).pipe(
-        map(
-          (r: boolean) => {
-            return {
-              success: r,
-              reason: ''
-            };
-          }
-        )
-      );
+      return this.loginUser(user);
     }
   }
 

@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { MaterialModule } from 'src/app/material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -9,6 +10,7 @@ import { RegisterPageComponent } from './components/register-page/register-page.
 
 @NgModule({
   imports: [
+    CommonModule,
     CoreRoutingModule,
     MaterialModule,
 

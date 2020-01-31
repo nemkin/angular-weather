@@ -11,6 +11,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 })
 export class RegisterPageComponent implements OnInit {
 
+  public errorMessage: string;
   registerForm: FormGroup;
 
   constructor(
@@ -30,6 +31,8 @@ export class RegisterPageComponent implements OnInit {
       (result) => {
         if (result.success) {
           this.router.navigate(['/dashboard']);
+        } else {
+          this.errorMessage = result.reason;
         }
       }
     );

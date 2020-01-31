@@ -42,6 +42,16 @@ a:hover {
   width: 100%;
 }
 
+.mat-raised-button {
+  color: #648381;
+  background-color: #F4F4F2;;
+}
+
+.errors {
+  text-align: left;
+  color: red;
+}
+
 @media (max-width: 800px) {
   .main {
     align-items: baseline;
