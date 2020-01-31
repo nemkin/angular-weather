@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, HostListener } from '@angular/core';
 import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { CityValidatorDirective } from 'src/app/shared/validators/city-validator.directive';
@@ -39,4 +39,10 @@ export class AddCityDialogComponent implements OnInit {
     return this.form.controls[controlName].hasError(errorName);
   }
 
+  @HostListener('document:keypress', ['$event'])
+  handleKeyboardEvent(event: KeyboardEvent) {
+    if (event.key === 'Enter') {
+      this.onAdd();
+    }
+  }
 }
