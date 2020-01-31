@@ -7,19 +7,19 @@
 <div *ngIf="cityList" id="main">
   <mat-tab-group [(selectedIndex)]=selectedTab>
     <mat-tab *ngFor="let city of cityList.cities; let i = index" [attr.data-index]="i">
-     <ng-template mat-tab-label>
-      {{ city }}
-      <button mat-icon-button class="removeTab" (click)="removeTab(i)">
-        <i class="material-icons material-close-icons">
-          clear
-        </i>
-     </button>
+      <ng-template mat-tab-label>
+        {{ city }}
+        <button mat-icon-button class="removeTab" (click)="removeTab(i)">
+          <i class="material-icons material-close-icons">
+            clear
+          </i>
+        </button>
       </ng-template>
     </mat-tab>
     <mat-tab disabled>
       <ng-template mat-tab-label>
         <button mat-icon-button (click)="addTab()" tabindex="-1">
-          <i class="material-icons">
+          <i class="material-icons material-add-icons">
             add
           </i>
         </button>
