@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatTabGroup } from '@angular/material';
 
 import { AddCityDialogComponent } from '../add-city-dialog/add-city-dialog.component';
 import { DatabaseService } from 'src/app/core/services/database.service';
@@ -20,7 +20,7 @@ export class DashboardPageComponent implements OnInit {
   cityList: CityList;
   selectedTab = 0;
 
-  @ViewChild('tabGroup', {static: false}) tabGroup;
+  @ViewChild('tabGroup', {static: false}) tabGroup: MatTabGroup;
 
   constructor(
     private router: Router,
@@ -51,7 +51,8 @@ export class DashboardPageComponent implements OnInit {
       }
     });
   }
-  addTab(): void {
+  addTab(event: Event): void {
+    event.preventDefault();
     const dialogRef = this.dialog.open(AddCityDialogComponent);
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
@@ -65,9 +66,12 @@ export class DashboardPageComponent implements OnInit {
     });
   }
 
-  removeTab(i: number): void {
+  removeTab(i: number, event: Event): void {
+    event.preventDefault();
     if (this.selectedTab === i) {
-      this.selectedTab = Math.max((i - 1), 0);
+      setTimeout(() => {
+        this.tabGroup.selectedIndex = Math.max((i - 1), 0);
+      });
     }
     this.db.removeCityFromLoggedInUser(this.cityList.cities[i]);
   }
@@ -75,9 +79,13 @@ export class DashboardPageComponent implements OnInit {
   selectCity(city: string): void {
     const index = this.cityList.cities.findIndex((c: string) => (c === city));
     if (index !== null && index !== undefined) {
-      this.selectedTab = index;
+      setTimeout(() => {
+        this.tabGroup.selectedIndex = index;
+      });
     } else {
-      this.selectedTab = 0;
+      setTimeout(() => {
+        this.tabGroup.selectedIndex = 0;
+      });
     }
   }
 }
