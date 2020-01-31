@@ -103,11 +103,30 @@
   align-items: center;
   justify-content: center;
 }
-#detail-list svg {
+.pressure {
   width: 40px;
   height: 40px;
-  fill: #FFBF46;
- }
+  mask: url('/assets/icons/wi-barometer.svg');
+  -webkit-mask: url('/assets/icons/wi-barometer.svg');
+
+  background-color: #FFBF46;
+}
+.humidity {
+  width: 40px;
+  height: 40px;
+  mask: url('/assets/icons/wi-humidity.svg');
+  -webkit-mask: url('/assets/icons/wi-humidity.svg');
+
+  background-color: #FFBF46;
+}
+.cloudiness {
+  width: 40px;
+  height: 40px;
+  mask: url('/assets/icons/wi-cloudy.svg');
+  -webkit-mask: url('/assets/icons/wi-cloudy.svg');
+
+  background-color: #FFBF46;
+}
 #detail-list p {
   font-size: 25px;
   padding-left: 5px;
@@ -136,7 +155,6 @@
     text-align: initial;
     line-height: 1.3em;
   }
-
   #summary {
     flex-direction: column;
     height: initial;
