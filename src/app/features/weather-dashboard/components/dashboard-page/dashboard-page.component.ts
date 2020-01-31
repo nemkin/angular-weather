@@ -6,6 +6,7 @@ import { AddCityDialogComponent } from '../add-city-dialog/add-city-dialog.compo
 import { DatabaseService } from 'src/app/core/services/database.service';
 import { CityList } from 'src/app/core/models/cities';
 import { User } from 'src/app/core/models/user';
+import { Response } from 'src/app/core/models/response';
 
 @Component({
   selector: 'app-dashboard-page',
@@ -44,10 +45,8 @@ export class DashboardPageComponent implements OnInit {
   }
 
   logout(): void {
-    this.db.logoutCurrentUser().subscribe((result: boolean) => {
-      if (result) {
-        console.log("Received:");
-        console.log(result);
+    this.db.logoutCurrentUser().subscribe((result: Response) => {
+      if (result.success) {
         this.router.navigate(['/account/login']);
       }
     });
