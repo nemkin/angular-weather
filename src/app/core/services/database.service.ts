@@ -3,6 +3,7 @@ import { LOCAL_STORAGE, StorageService } from 'ngx-webstorage-service';
 
 import { User } from '../models/user';
 import { CityList } from '../models/cities';
+import { Response } from '../models/response';
 import { Observable, of, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -97,7 +98,7 @@ export class DatabaseService {
     ));
   }
 
-  public loginUser(userData: {name: string, password: string}): Observable<{ success: boolean, reason: string }> {
+  public loginUser(userData: {name: string, password: string}): Observable<Response> {
     return this.authenticateUser(userData).pipe(
       map((user: User) => {
         if (exists(user)) {
@@ -105,31 +106,34 @@ export class DatabaseService {
           return {
             success: true,
             reason: ''
-          };
+          } as Response;
         }
         return {
           success: false,
           reason: 'Username and password do not match'
-        };
+        } as Response;
       }
     ));
   }
 
-  public logoutCurrentUser(): Observable<boolean> {
+  public logoutCurrentUser(): Observable<Response> {
     if (exists(this._loggedInUser)) {
       this._loggedInUser = null;
     }
-    return of(true);
+    return of({
+      success: true,
+      reason: ''
+    } as Response);
   }
 
-  public registerUser(userData: {name: string, password: string}): Observable<{ success: boolean, reason: string }> {
+  public registerUser(userData: {name: string, password: string}): Observable<Response> {
 
     const sameUser = this._users.find((u: User) => (userData.name === u.name));
     if (exists(sameUser)) {
       return of({
         success: false,
         reason: 'User already exists'
-      });
+      } as Response);
     } else {
       const user = {
         id: this.nextUserId,
@@ -146,14 +150,14 @@ export class DatabaseService {
     }
   }
 
-  public addCityToLoggedInUser(city: string): Observable<{ success: boolean, reason: string }> {
+  public addCityToLoggedInUser(city: string): Observable<Response> {
     const sameCity = this._loggedInUserCities.cities.find((c: string) => c === city);
 
     if (exists(sameCity)) {
       return of({
         success: false,
         reason: 'City already exists'
-      });
+      } as Response);
     }
 
     this._loggedInUserCities = {
@@ -164,7 +168,7 @@ export class DatabaseService {
     return of({
       success: true,
       reason: ''
-    });
+    } as Response);
   }
 
   public removeCityFromLoggedInUser(city: string): void {
